@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => '19c5dc7ddd151f4795d38b9187a34f34c67ee4b7',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -437,12 +437,12 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => '19c5dc7ddd151f4795d38b9187a34f34c67ee4b7',
             'dev_requirement' => false,
         ),
         'laravel/pint' => array(
@@ -551,6 +551,15 @@
             'install_path' => __DIR__ . '/../league/mime-type-detection',
             'aliases' => array(),
             'reference' => 'ff6248ea87a9f116e78edd6002e39e5128a0d4dd',
+            'dev_requirement' => false,
+        ),
+        'midtrans/midtrans-php' => array(
+            'pretty_version' => '2.5.2',
+            'version' => '2.5.2.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../midtrans/midtrans-php',
+            'aliases' => array(),
+            'reference' => 'a1ad0c824449ca8c68c4cf11b3417ad518311d2b',
             'dev_requirement' => false,
         ),
         'mockery/mockery' => array(
