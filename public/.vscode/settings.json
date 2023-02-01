@@ -1,0 +1,7 @@
+{
+  "editor.defaultFormatter": "amirmarmul.laravel-blade-vscode",
+  "bladeFormatter.format.indentSize": 2,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "vetur.format.options.tabSize": 2
+}
