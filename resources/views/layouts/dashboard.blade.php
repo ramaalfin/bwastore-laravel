@@ -52,23 +52,33 @@
                             <!-- Desktop Menu -->
                             <ul class="navbar-nav d-none d-lg-flex ms-lg-auto">
                                 <li class="nav-item dropdown">
-                                    <a href="#" class="nav-link" id="navbarDropdown" role="button"
+                                    <a href="#" class="nav-link d-flex align-items-center justify-content-center" id="navbarDropdown" role="button"
                                         data-bs-toggle="dropdown">
                                         <img src="/images/icon-user.png" class="rounded-circle me-2 profile-picture"
                                             alt="" />
-                                        Hi, Lyd
+                                        <span id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Hi, {{ Auth::user()->name }}</span>
                                     </a>
                                     <div class="dropdown-menu">
-                                        <a href="/dashboard.html" class="dropdown-item">Dashboard</a>
-                                        <a href="/dashboard-account.html" class="dropdown-item">Settings</a>
+                                        <a href="{{ route('home') }}" class="dropdown-item">Home</a>
+                                        <a href="{{ route('dashboard-settings-account') }}" class="dropdown-item">Settings</a>
                                         <div class="dropdown-divider"></div>
-                                        <a href="/" class="dropdown-item">Logout</a>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>                                        
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
                                     </div>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link d-inline-block mt-2">
-                                        <img src="/images/icon-cart-filled.svg" alt="" />
-                                        <div class="card-badge">3</div>
+                                    <a href="{{ route('cart') }}" class="nav-link d-inline-block mt-2">
+                                        @php
+                                            $carts = App\Models\Cart::where('users_id', Auth::user()->id)->count();
+                                        @endphp
+                                        @if ($carts > 0)
+                                            <img src="/images/icon-cart-filled.svg" alt="">
+                                            <div class="card-badge">{{ $carts }}</div>
+                                        @else
+                                            <img src="/images/icon-cart-empty.svg" alt="">
+                                        @endif
                                     </a>
                                 </li>
                             </ul>
