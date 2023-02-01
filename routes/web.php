@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\AdminProductGalleryController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardProductController;
 use App\Http\Controllers\DashboardSettingController;
@@ -29,7 +30,11 @@ Route::get("/details/{id}", [DetailController::class, "index"])->name("detail");
 Route::post("/details/{id}", [DetailController::class, "add"])->name("detail-add");
 Route::get("/cart", [CartController::class, "index"])->name("cart");
 Route::delete("/cart/{id}", [CartController::class, "delete"])->name("cart-delete");
+
 Route::get("/success", [CartController::class, "success"])->name("success");
+
+Route::post("/checkout", [CheckoutController::class, "process"])->name("checkout");
+Route::post("/checkout/callback", [CheckoutController::class, "callback"])->name("midtrans-callback");
 
 Route::get("/register", [RegisterController::class, "index"])->name("register");
 Route::get("/register/success", [RegisterController::class, "success"])->name(
