@@ -16,23 +16,25 @@
             <div class="dashboard-content">
                 <div class="row">
                     <div class="col-12">
-                        <form action="">
+                        <form action="{{ route('dashboard-settings-redirect', 'dashboard-settings-store') }}" method="post" enctype="multipart/form-data">
+                            @csrf
                             <div class="card">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">Nama Toko</label>
-                                                <input type="text" class="form-control mb-3" />
+                                                <input type="text" class="form-control mb-3" name="store_name" value="{{ $user->store_name }}" />
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">Kategori</label>
-                                                <select name="category" class="form-select">
-                                                    <option value="" selected disabled>
-                                                        Select Category
-                                                    </option>
+                                                <select name="categories_id" class="form-control mb-3">
+                                                    <option value="{{ $user->categories_id }}">Tidak diganti</option>
+                                                    @foreach ($categories as $category)
+                                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -43,13 +45,13 @@
                                                     Apakah anda juga ingin membuka toko?
                                                 </p>
                                                 <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" name="is_store_open" id="openStoreTrue"
-                                                        class="custom-custom-input" value="true" />
+                                                    <input type="radio" name="store_status" id="openStoreTrue"
+                                                        class="custom-custom-input" value="1" {{ $user->store_status == 1 ? 'checked' : '' }}/>
                                                     <label for="openStoreTrue" class="custom-control-label">Buka</label>
                                                 </div>
                                                 <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" name="is_store_open" id="openStoreFalse"
-                                                        class="custom-custom-input" value="false" />
+                                                    <input type="radio" name="store_status" id="openStoreFalse"
+                                                        class="custom-custom-input" value="0" {{ $user->store_status == 0 || $user->store_status == NULL ? 'checked' : '' }}/>
                                                     <label for="openStoreFalse" class="custom-control-label">Sementara
                                                         Tutup</label>
                                                 </div>
