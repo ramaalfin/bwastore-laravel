@@ -35,84 +35,43 @@
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                                 aria-labelledby="pills-home-tab">
-                                <a href="/dashboard-transactions.html" class="card card-list d-block">
+                                @foreach ($sellTransaction as $transaction)
+                                <a href="{{ route('dashboard-transactions-details', $transaction->id) }}" class="card card-list d-block">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-1">
-                                                <img src="/images/dashboard-icon-product-1.png" alt="" />
+                                                <img src="{{ Storage::url($transaction->product->galleries->first()->photos ?? '') }}" class="w-50" />
                                             </div>
-                                            <div class="col-md-4">Shirup</div>
-                                            <div class="col-md-3">Rama</div>
-                                            <div class="col-md-3">12 Januari 2020</div>
+                                            <div class="col-md-4">{{ $transaction->product->name }}</div>
+                                            <div class="col-md-3">{{ $transaction->product->user->store_name }}</div>
+                                            <div class="col-md-3">{{ $transaction->created_at }}</div>
                                             <div class="col-md-1 d-none d-md-block">
                                                 <img src="/images/dashboard-arrow-right.svg" alt="" />
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                                <a href="/dashboard-transactions.html" class="card card-list d-block">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <img src="/images/dashboard-icon-product-1.png" alt="" />
-                                            </div>
-                                            <div class="col-md-4">Somay</div>
-                                            <div class="col-md-3">Alfin</div>
-                                            <div class="col-md-3">16 Januari 2020</div>
-                                            <div class="col-md-1 d-none d-md-block">
-                                                <img src="/images/dashboard-arrow-right.svg" alt="" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="/dashboard-transactions.html" class="card card-list d-block">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <img src="/images/dashboard-icon-product-1.png" alt="" />
-                                            </div>
-                                            <div class="col-md-4">Bakso</div>
-                                            <div class="col-md-3">Baehaqi</div>
-                                            <div class="col-md-3">13 Januari 2020</div>
-                                            <div class="col-md-1 d-none d-md-block">
-                                                <img src="/images/dashboard-arrow-right.svg" alt="" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
+                                @endforeach
                             </div>
                             <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                                 aria-labelledby="pills-profile-tab">
-                                <a href="/dashboard-transactions.html" class="card card-list d-block">
+                                @foreach ($buyTransaction as $transaction)
+                                <a href="{{ route('dashboard-transactions-details', $transaction->id) }}" class="card card-list d-block">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-1">
-                                                <img src="/images/dashboard-icon-product-1.png" alt="" />
+                                                <img src="{{ Storage::url($transaction->product->galleries->first()->photos ?? '') }}" class="w-50" />
                                             </div>
-                                            <div class="col-md-4">Shirup</div>
-                                            <div class="col-md-3">Rama</div>
-                                            <div class="col-md-3">12 Januari 2020</div>
+                                            <div class="col-md-4">{{ $transaction->product->name }}</div>
+                                            <div class="col-md-3">{{ $transaction->product->user->store_name }}</div>
+                                            <div class="col-md-3">{{ $transaction->created_at }}</div>
                                             <div class="col-md-1 d-none d-md-block">
                                                 <img src="/images/dashboard-arrow-right.svg" alt="" />
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                                <a href="/dashboard-transactions.html" class="card card-list d-block">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <img src="/images/dashboard-icon-product-1.png" alt="" />
-                                            </div>
-                                            <div class="col-md-4">Somay</div>
-                                            <div class="col-md-3">Alfin</div>
-                                            <div class="col-md-3">16 Januari 2020</div>
-                                            <div class="col-md-1 d-none d-md-block">
-                                                <img src="/images/dashboard-arrow-right.svg" alt="" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
+                                @endforeach
                             </div>
                         </div>
                     </div>
