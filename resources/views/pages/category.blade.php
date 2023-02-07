@@ -20,6 +20,10 @@ Store Category Page
                 <a href="{{ route('categories-detail', $category->slug) }}" class="component-categories d-block">
                     <div class="categories-image">
                         <img src="{{ Storage::url($category->photo) }}" alt="categories image" class="w-100" />
+                        {{-- @php
+                          $image = $category->photo ? $category->photo : '';
+                        @endphp
+                        <img src="{{ asset($image) }}" alt="image product" class="w-100 mb-2" /> --}}
                     </div>
                     <p class="categories-text">{{ $category->name }}</p>
                 </a>

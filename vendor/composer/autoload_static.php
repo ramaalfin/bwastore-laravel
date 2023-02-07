@@ -674,6 +674,7 @@ class ComposerStaticInite157f66e9c37988d2ca62683d8a3380c
         'App\\Http\\Controllers\\Admin\\AdminDashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AdminDashboardController.php',
         'App\\Http\\Controllers\\Admin\\AdminProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AdminProductController.php',
         'App\\Http\\Controllers\\Admin\\AdminProductGalleryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AdminProductGalleryController.php',
+        'App\\Http\\Controllers\\Admin\\AdminTransactionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AdminTransactionController.php',
         'App\\Http\\Controllers\\Admin\\AdminUserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AdminUserController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
