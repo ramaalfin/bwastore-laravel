@@ -60,18 +60,14 @@
                                         data-bs-toggle="dropdown">
                                         <img src="/images/icon-user.png" class="rounded-circle me-2 profile-picture"
                                             alt="" />
-                                        Hi, Lyd
+                                        {{ Auth::user()->name }}
                                     </a>
                                     <div class="dropdown-menu">
-                                        <div class="dropdown-divider"></div>
-                                        <a href="/" class="dropdown-item">Logout</a>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>                                        
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
                                     </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link d-inline-block mt-2">
-                                        <img src="/images/icon-cart-filled.svg" alt="" />
-                                        <div class="card-badge">3</div>
-                                    </a>
                                 </li>
                             </ul>
                             <!-- Mobile Menu -->
